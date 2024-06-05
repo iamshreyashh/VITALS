@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+package insurance.insurance;
+
+import "gogoproto/gogo.proto";
+import "google/api/annotations.proto";
+import "cosmos/base/query/v1beta1/pagination.proto";
+import "insurance/insurance/params.proto";
+import "insurance/insurance/insurance.proto";
+
+option go_package = "insurance/x/insurance/types";
+
+// Query defines the gRPC querier service.
+service Query {
+  
+  // Parameters queries the parameters of the module.
+  rpc Params (QueryParamsRequest) returns (QueryParamsResponse) {
+    option (google.api.http).get = "/insurance/insurance/params";
+  
+  }
+  
+  // Queries a list of insurance items.
+  rpc insurance    (QueryGetinsuranceRequest) returns (QueryGetinsuranceResponse) {
+    option (google.api.http).get = "/insurance/insurance/insurance/{id}";
+  
+  }
+  rpc insuranceAll (QueryAllinsuranceRequest) returns (QueryAllinsuranceResponse) {
+    option (google.api.http).get = "/insurance/insurance/insurance";
+  
+  }
+}
+// QueryParamsRequest is request type for the Query/Params RPC method.
+message QueryParamsRequest {}
+
+// QueryParamsResponse is response type for the Query/Params RPC method.
+message QueryParamsResponse {
+  
+  // params holds all the parameters of this module.
+  Params params = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryGetinsuranceRequest {
+  uint64 id = 1;
+}
+
+message QueryGetinsuranceResponse {
+  insurance insurance = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryAllinsuranceRequest {
+  cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryAllinsuranceResponse {
+  repeated insurance                                   insurance       = 1 [(gogoproto.nullable) = false];
+           cosmos.base.query.v1beta1.PageResponse pagination = 2;
+}
+

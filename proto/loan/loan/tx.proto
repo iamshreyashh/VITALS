@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+package insurance.insurance;
+
+option go_package = "insurance/x/insurance/types";
+
+// Msg defines the Msg service.
+service Msg {
+  rpc Requestinsurance   (MsgRequestinsurance  ) returns (MsgRequestinsuranceResponse  );
+  rpc Approveinsurance   (MsgApproveinsurance  ) returns (MsgApproveinsuranceResponse  );
+  rpc Cancelinsurance    (MsgCancelinsurance   ) returns (MsgCancelinsuranceResponse   );
+  rpc Repayinsurance     (MsgRepayinsurance    ) returns (MsgRepayinsuranceResponse    );
+  rpc Liquidateinsurance (MsgLiquidateinsurance) returns (MsgLiquidateinsuranceResponse);
+}
+message MsgRequestinsurance {
+  string creator    = 1;
+  string amount     = 2;
+  string fee        = 3;
+  string collateral = 4;
+  string deadline   = 5;
+}
+
+message MsgRequestinsuranceResponse {}
+
+message MsgApproveinsurance {
+  string creator = 1;
+  uint64 id      = 2;
+}
+
+message MsgApproveinsuranceResponse {}
+
+message MsgCancelinsurance {
+  string creator = 1;
+  uint64 id      = 2;
+}
+
+message MsgCancelinsuranceResponse {}
+
+message MsgRepayinsurance {
+  string creator = 1;
+  uint64 id      = 2;
+}
+
+message MsgRepayinsuranceResponse {}
+
+message MsgLiquidateinsurance {
+  string creator = 1;
+  uint64 id      = 2;
+}
+
+message MsgLiquidateinsuranceResponse {}
+

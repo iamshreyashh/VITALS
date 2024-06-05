@@ -38,8 +38,8 @@ import (
 	"github.com/spf13/pflag"
 	// this line is used by starport scaffolding # root/moduleImport
 
-	"loan/app"
-	appparams "loan/app/params"
+	"insurance/app"
+	appparams "insurance/app/params"
 )
 
 // NewRootCmd creates a new root command for a Cosmos SDK application
@@ -57,7 +57,7 @@ func NewRootCmd() (*cobra.Command, appparams.EncodingConfig) {
 
 	rootCmd := &cobra.Command{
 		Use:   app.Name + "d",
-		Short: "Start loan node",
+		Short: "Start insurance node",
 		PersistentPreRunE: func(cmd *cobra.Command, _ []string) error {
 			// set the default command outputs
 			cmd.SetOut(cmd.OutOrStdout())
