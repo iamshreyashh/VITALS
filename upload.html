@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload PDF</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f2ed;
+            margin: 0;
+            flex-direction: column;
+        }
+        .upload-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 500px;
+            text-align: center;
+            padding: 40px;
+            margin-bottom: 20px;
+        }
+        .upload-container img {
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+        }
+        .upload-container p {
+            font-size: 1.2em;
+            color: #666;
+            margin: 20px 0;
+        }
+        .upload-button {
+            background-color: #7d97f7;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .upload-button:hover {
+            background-color: #6789e6;
+        }
+        .file-input {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="upload-container">
+        <!-- <img src="https://cdn-icons-png.flaticon.com/512/2305/2305893.png" alt="Upload Icon" onclick="document.getElementById('file-input').click()"> -->
+        </button><svg width="123" height="123" viewBox="0 0 123 123" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="document.getElementById('file-input').click()">
+            <path d="M102.003 44.0033C101.76 43.447 101.42 42.9385 100.998 42.5016L70.2484 11.7516C69.8115 11.3303 69.303 10.9901 68.7467 10.7471C68.593 10.6754 68.429 10.6344 68.265 10.578C67.8362 10.4321 67.3898 10.3442 66.9376 10.3166C66.83 10.3064 66.7326 10.25 66.625 10.25H30.75C25.0971 10.25 20.5 14.8471 20.5 20.5V102.5C20.5 108.153 25.0971 112.75 30.75 112.75H92.25C97.9029 112.75 102.5 108.153 102.5 102.5V46.125C102.5 46.0174 102.444 45.92 102.433 45.8072C102.408 45.3548 102.32 44.908 102.172 44.4799C102.121 44.3159 102.075 44.157 102.003 44.0033ZM85.0033 41H71.75V27.7467L85.0033 41ZM30.75 102.5V20.5H61.5V46.125C61.5 47.4842 62.04 48.7878 63.0011 49.7489C63.9622 50.71 65.2658 51.25 66.625 51.25H92.25L92.2603 102.5H30.75Z" fill="#C8DAFF"/>
+            <path d="M41 61.5H82V71.75H41V61.5ZM41 82H82V92.25H41V82ZM41 41H51.25V51.25H41V41Z" fill="#C8DAFF"/>
+            </svg>
+        <p>Upload Files (in pdf format)</p>
+        <input type="file" id="file-input" class="file-input" accept=".pdf">
+    </div>
+    <button class="upload-button">Upload Report</button>
+    <script>
+        document.getElementById('file-input').addEventListener('change', function() {
+            if (this.files.length > 0) {
+                alert('File selected: ' + this.files[0].name);
+                // You can add your file upload handling code here
+            }
+        });
+    </script>
+</body>
+</html>

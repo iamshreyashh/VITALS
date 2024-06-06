@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Approve Pending Request</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #FFFFFF;
+            display: flex;
+            height: 100vh;
+        }
+        .sidebar {
+            width: 60px;
+            background-color: #6D9CF9;
+            padding: 15px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .sidebar .back-arrow {
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .sidebar .next-arrow{
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            margin-top: 578px;
+        }
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .navbar {
+            background-color: #fff;
+            padding: 15px 30px;
+            box-shadow: 0 3px 7px rgba(0,0,0,0.1);
+        }
+        .navbar h1 {
+            margin: 0;
+            font-size: 30px;
+        }
+        .content {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .form-container {
+            width: 100%;
+            max-width: 400px;
+            background: #fff;
+            padding: 50px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .form-container label{
+            display: block;
+            font-size: 16px;
+            color: #585757;
+            margin-bottom: 5px;
+            margin: 7px;
+        }
+        .form-container input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #a8a4a4;
+            background-color: #EDEDED;
+            border-radius: 4px;
+        }
+        .form-container .button-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .form-container .button-container button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .form-container .button-container .cancel {
+            background-color: #fff;
+            border: 1px solid #6D9CF9;
+            color: #6D9CF9;
+        }
+        .form-container .button-container .add {
+            background-color: #6D9CF9;
+            color: #fff;
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 20px;
+        }
+        .header {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .request-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .request-item:last-child {
+            border-bottom: none;
+        }
+        .request-details {
+            display: flex;
+            flex-direction: column;
+        }
+        .request-title {
+            font-weight: bold;
+        }
+        .request-meta {
+            display: flex;
+            align-items: center;
+            font-size: 0.9em;
+            color: #777;
+        }
+        .request-meta span {
+            margin-right: 10px;
+        }
+        .request-meta .status {
+            display: flex;
+            align-items: center;
+        }
+        .request-meta .status .status-indicator {
+            width: 10px;
+            height: 10px;
+            background-color: green;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <!-- <img src="back-arrow.png" alt="Back" class="back-arrow"> -->
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" alt="Back" class="back-arrow">
+            <path d="M10 24L22 12M10 24L22 36M10 24H38" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+
+        <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg" alt="Next" class="next-arrow">
+            <path d="M9.58333 40.25C8.52917 40.25 7.62706 39.875 6.877 39.1249C6.12694 38.3749 5.75128 37.4721 5.75 36.4167V9.58333C5.75 8.52917 6.12567 7.62706 6.877 6.877C7.62833 6.12694 8.53044 5.75128 9.58333 5.75H23V9.58333H9.58333V36.4167H23V40.25H9.58333ZM30.6667 32.5833L28.0312 29.8042L32.9187 24.9167H17.25V21.0833H32.9187L28.0312 16.1958L30.6667 13.4167L40.25 23L30.6667 32.5833Z" fill="white"/>
+            </svg>
+                
+    </div>
+    <div class="main-content">
+        <div class="navbar">
+            <h1>Approve Pending Request</h1>
+        </div>
+        <div class="container">
+            
+            <div class="request-item">
+                <div class="request-details">
+                    <div class="request-title">Annual Physical Examination</div>
+                    <div class="request-meta">
+                        <span>Regency Hospitals Ltd.</span>
+                        <div class="status">
+                            <div class="status-indicator"></div>
+                            <span>Dr. Rohit Mahajan</span>
+                        </div>
+                    </div>
+                </div>
+                <div>12/11/2023</div>
+            </div>
+            <!-- Repeat the above request-item block for each entry -->
+            <div class="request-item">
+                <div class="request-details">
+                    <div class="request-title">Annual Physical Examination</div>
+                    <div class="request-meta">
+                        <span>Regency Hospitals Ltd.</span>
+                        <div class="status">
+                            <div class="status-indicator"></div>
+                            <span>Dr. Rohit Mahajan</span>
+                        </div>
+                    </div>
+                </div>
+                <div>12/11/2023</div>
+            </div>
+            <div class="request-item">
+                <div class="request-details">
+                    <div class="request-title">Annual Physical Examination</div>
+                    <div class="request-meta">
+                        <span>Regency Hospitals Ltd.</span>
+                        <div class="status">
+                            <div class="status-indicator"></div>
+                            <span>Dr. Rohit Mahajan</span>
+                        </div>
+                    </div>
+                </div>
+                <div>12/11/2023</div>
+            </div>
+            <div class="request-item">
+                <div class="request-details">
+                    <div class="request-title">Annual Physical Examination</div>
+                    <div class="request-meta">
+                        <span>Regency Hospitals Ltd.</span>
+                        <div class="status">
+                            <div class="status-indicator"></div>
+                            <span>Dr. Rohit Mahajan</span>
+                        </div>
+                    </div>
+                </div>
+                <div>12/11/2023</div>
+            </div>
+            <div class="request-item">
+                <div class="request-details">
+                    <div class="request-title">Annual Physical Examination</div>
+                    <div class="request-meta">
+                        <span>Regency Hospitals Ltd.</span>
+                        <div class="status">
+                            <div class="status-indicator"></div>
+                            <span>Dr. Rohit Mahajan</span>
+                        </div>
+                    </div>
+                </div>
+                <div>12/11/2023</div>
+            </div>
+            <div class="request-item">
+                <div class="request-details">
+                    <div class="request-title">Annual Physical Examination</div>
+                    <div class="request-meta">
+                        <span>Regency Hospitals Ltd.</span>
+                        <div class="status">
+                            <div class="status-indicator"></div>
+                            <span>Dr. Rohit Mahajan</span>
+                        </div>
+                    </div>
+                </div>
+                <div>12/11/2023</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
